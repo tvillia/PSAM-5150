@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.localflavor.us.models import USStateField, PhoneNumberField
 
 class EventType(models.Model):
-    event_name = models.CharField(max_length=100, help_text="This is the name of of your event type")
+    event_name = models.CharField(max_length=100, unique=True, help_text="This is the name of of your event type")
 
     class Meta:
         verbose_name_plural = 'Event Types'
@@ -13,7 +13,7 @@ class EventType(models.Model):
 class Appointment(models.Model):
     created_on = models.DateTimeField(auto_now_add=True, editable=False)
     updated_on = models.DateTimeField(auto_now_add=True)
-    event_type = models.ForeignKey('EventType', unique=True, related_name="EventType")
+    event_type = models.ForeignKey('EventType', related_name="EventType")
     title = models.CharField(max_length=100)
     description = models.TextField()
     guests = models.ManyToManyField('Contacts', related_name="contacts")
