@@ -1,12 +1,12 @@
 # Create your views here.
-from django.http import httpResponse
+from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.contrib.sites.models import get_current_site
 from django.shortcuts import redirect
 from django.contrib import messages
 
-#from contact.forms import ContactForm
+from contact.forms import ContactForm
 
 from contact.models import ContactModel 
 
@@ -16,7 +16,7 @@ def home(request):
 def received(request):
 	return render_to_response('contact/received.html', context_instance=RequestContext(request))
 
-def my_contact(request):
+def dolai_contact(request):
 	if request.method == 'POST': #does this need to be capitalized? I wonder what will happen if I take that away. Remember to try that later
 		form = ContactForm(request.POST)
 		if form.is_valid():
@@ -32,10 +32,6 @@ def my_contact(request):
 			my_contacts.message = form.cleaned_data['message']
 			my_contacts.save()
 			return redirect('received')
-
 	else:
 		form = ContactForm()
-
-	return render_to_response('contact/wtfcontacts.html', {'form':form}, context_instance=RequestContext(request))
-
-
+	return render_to_response('contact/dolaicontact.html',{'form':form}, context_instance=RequestContext(request))
