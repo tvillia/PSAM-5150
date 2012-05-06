@@ -3,10 +3,10 @@ from django.db import models
 #CensusModel...
 class PersonModel(model.Model)
 	name = models.CharField(max_length=100)
-	sex = 
-	dob =
-	latinohispanic = 
-	race = 
+	sex = models.CharField(max_length=1)
+	dob = models.DateField()
+	latinohispanic = models.BooleanField(default=False)
+	race = models.CharField(max_length=100)
 
 class AddressModel(model.Model)
 	address = models.CharField(max_length=200)
@@ -15,9 +15,9 @@ class AddressModel(model.Model)
 	zip = models.IntegerField(max_length=5)
 
 class ResidenceModel(model.Model)
-	owned = 
-	number_of_residents = 
-	number_of_guests = 
+	owned = models.BooleanField(default=False)
+	number_of_residents = models.IntegerField(max_length=2)
+	number_of_guests = models.IntegerField(max_length=2)
 
 class RespondentModel(model.Model)
 	name = models.CharField(max_length=100)
