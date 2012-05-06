@@ -1,0 +1,17 @@
+<html>
+<head>
+    <title>Identify Yourself! </title>
+
+</head>
+<body>
+<h1>We're gonna scan your left eye</h1>
+
+	<form action="{% url dolaicensus %}" method="POST">
+		{% csrf_token %}
+		{{ form.as_p }}
+	<p><input type="submit" value="submit"></p>
+
+	</form>
+
+</body>
+</html>

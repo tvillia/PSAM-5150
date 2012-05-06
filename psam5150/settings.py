@@ -116,7 +116,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.admindocs',
     'signupform',
-    #'census',
+    'census',
     'contact',
     #'gameshow',
     )

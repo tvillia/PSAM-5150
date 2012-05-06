@@ -1,13 +1,15 @@
 from django.db import models
 
 #CensusModel...
-class PersonModel(model.Model)
+class CensusModel(models.Model):
+	
 	name = models.CharField(max_length=100)
 	sex = models.CharField(max_length=1)
-	dob = models.DateField()
-	latinohispanic = models.BooleanField(default=False)
+	dob = models.IntegerField(max_length=8)
+	latinohispanic = models.CharField(max_length=1)
 	race = models.CharField(max_length=100)
 
+'''
 class AddressModel(model.Model)
 	address = models.CharField(max_length=200)
 	city = models.Charfield(max_length=100)
@@ -26,3 +28,5 @@ class RespondentModel(model.Model)
 	state = models.CharField(max_length=2)
 	zip = models.IntegerField(max_length=5)
 	phone = models.IntegerField(max_length=10)
+'''
+
